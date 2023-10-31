@@ -315,6 +315,8 @@ public:
             auto i = state->its.find(act);
             assert(i != state->its.end());
             i->second->phase = getS(fields, 0);
+            ActInfo info = *i->second;
+            log(*state, lvlInfo, ANSI_FAINT + info.name.value_or("unnamed") + "> " + "@setPhase " + i->second->phase);
             update(*state);
         }
 
